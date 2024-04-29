@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+# from django.contrib.auth import login
 # from .models import Candy
 
 # Create your views here.
