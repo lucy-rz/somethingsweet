@@ -9,8 +9,8 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
-# def candies_index(request):
+def candies_index(request):
 #     candies = Candy.objects.all()
-#     return render(request, 'candies/index.html', {
-#         'candies': candies
-#     })
+    return render(request, 'candies/index.html', {
+        
+    })
