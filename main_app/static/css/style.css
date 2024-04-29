@@ -13,15 +13,21 @@ body {
     flex-direction: column;
 }
 
+.logout-btn {
+    background: none;
+    border: none;
+    color: white;
+}
+
 main {
     flex: 1;
 }
 
-/* .navbar-fixed {
+.navbar-fixed {
     font-weight: bold;
-} */
+}
 
 footer.page-footer {
-    padding: 10px 10px 10px 10px;
+    padding: 10px;
     text-align: center;
   }
