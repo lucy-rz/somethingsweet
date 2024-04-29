@@ -37,3 +37,6 @@ def candies_detail(request, candy_id):
     candy = Candy.objects.get(id=candy_id)
     return render (candy)
 
+class CandyCreate(CreateView):
+    model = Candy
+    fields = ['name', 'country', 'description', 'cost']
