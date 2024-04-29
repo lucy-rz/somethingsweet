@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
-# from .models import Candy
+from .models import Candy, Photo
+from django.views.generic.edit import CreateView
 
 # Create your views here.
 
@@ -10,13 +11,6 @@ def home(request):
 
 def about(request):
     return render(request, 'about.html')
-
-def candies_index(request):
-#     candies = Candy.objects.all()
-    return render(request, 'candies/index.html', {
-        
-    })
-
 
 def signup(request):
     error_message = ''
@@ -31,3 +25,15 @@ def signup(request):
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
+
+
+def candies_index(request):
+#     candies = Candy.objects.all()
+    return render(request, 'candies/index.html', {
+        
+    })
+
+def candies_detail(request, candy_id):
+    candy = Candy.objects.get(id=candy_id)
+    return render (candy)
+
