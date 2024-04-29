@@ -22,8 +22,9 @@
                 <ul class="right">
                     <li><a href="{% url 'about' %}">About</a></li>
                     <li><a href="{% url 'index' %}">Candies</a></li>
-                    <li><a href="{% url 'login' %}">Log In</a></li>
                     <li><form method="POST" action="{% url 'logout' %}">{% csrf_token %}<button class="logout-btn" type="submit">Log Out</button></form></li>
+                    <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                    <li><a href="{% url 'login' %}">Log In</a></li>
                 </ul>
             </div>
         </nav>
