@@ -2,12 +2,21 @@
 {% block content %}
 
 <h1>Candies</h1>
-
 <div class="row">
-    <div class="section">
-        <h5>Candy 1</h5>
-        <div class="col s7 push-s5">right push</div>
-        <div class="col s7 pull-s7">left pull</div>
+    <div class="col s6">
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">{{ candy.name }}</span>
+                <p>Name: {{ candy.name }}</p>
+                <p>Country: {{ candy.country }}</p>
+                <p>Description: {{ candy.description }}</p>
+                <p>Cost: {{ candy.cost }}</p>
+            </div>
+            <div class="card-action">
+                <a href="{% url 'candies_update' candy.id %}">Edit</a>
+                <a href="{% url 'candies_delete' candy.id %}">Delete</a>
+            </div>
+        </div>
     </div>
 </div>
 

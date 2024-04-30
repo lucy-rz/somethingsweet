@@ -3,4 +3,14 @@
 
 <h1>Candies</h1>
 
+{% for candy in candies %}
+<a href="{% url 'detail' candy.id %}">
+    <div class="card">
+        <div class="card-content">
+            <span class="card.title">{{ candy.name }}</span>
+        </div>
+    </div>
+</a>
+{% endfor %}
+
 {% endblock %}

@@ -28,18 +28,24 @@ def signup(request):
 
 
 def candies_index(request):
-#     candies = Candy.objects.all()
+    candies = Candy.objects.all()
     return render(request, 'candies/index.html', {
-        
+        'candies': candies
     })
 
 def candies_detail(request, candy_id):
     candy = Candy.objects.get(id=candy_id)
-    return render (candy)
+    return render (request, 'candies/detail.html', {
+        'candy': candy,
+    }) 
 
 class CandyCreate(CreateView):
     model = Candy
     fields = ['name', 'country', 'description', 'cost']
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 class CandyUpdate(UpdateView):
     model = Candy
