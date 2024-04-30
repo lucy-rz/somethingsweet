@@ -17,6 +17,19 @@
                 <a href="{% url 'candies_delete' candy.id %}">Delete</a>
             </div>
         </div>
+        {% for photo in candy.photo_set.all %}
+        <img src="{{ photo.url }}" alt="{{ candy.name }}" class="responsive-img card-panel">
+        {% empty %}
+        <div class="card-panel purple-text center-align">No photos uploaded</div>
+        {% endfor %}
+
+        <form action="{% url 'add_photo' candy.id %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="url" name="photo-url">
+            <br>
+            <br>
+            <input type="submit" value="Upload Photo" class="btn purple">
+        </form>
     </div>
 </div>
 
