@@ -83,11 +83,22 @@ def orders_index(request):
 def order_detail(request, order_id):
     order = Order.objects.get(id=order_id)
     itemized = zip(order.candies.all(), order.orderitem_set.all())
+    order_total = 0
+    for item in zip(order.candies.all(), order.orderitem_set.all()):
+        total_per_candy_type = item[0].cost * item[1].quantity
+        order_total += total_per_candy_type
+        print(item)
     return render(request, 'orders/detail.html', {
         'order': order,  
-        'itemized': itemized,   
+        'itemized': itemized,
+        'order_total': order_total,  
     })
+
 
 def complete_order(request, order_id):
     Order.objects.filter(current_order=True, id=order_id).update(current_order=False)
     return redirect('orders_index')
+
+def remove_candy(request, order_id, candy_id):
+    Order.objects.get(id=order_id).candies.remove(candy_id)
+    return redirect('order_detail', order_id=order_id)

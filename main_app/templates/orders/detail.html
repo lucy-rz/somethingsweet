@@ -12,15 +12,23 @@
         <div class="card">
             <div class="card-content">
                 <span class="card-title">
-                    {{ order.id }}
+                    Order #{{ order.id }}
                 </span>
                 {% for candy, orderitem in itemized %}
                     <div class="card-content">
                         <p>Candy: {{ candy.name }}</p>
                         <p>Cost: ${{ candy.cost }}</p>
                         <p>Qty: {{ orderitem.quantity }}</p>
+                        <br>
+                        {% if order.current_order == True %}
+                        <form action="{% url 'remove_candy' order.id candy.id %}" method="POST">
+                            {% csrf_token %}
+                            <input type="submit" value="Remove items &#x1F5D1" class="btn #ef5350 red lighten-1">
+                        </form>
+                        {% endif %}
                     </div>
                 {% endfor %}
+                <p>Total: ${{ order_total }}.00</p>
             </div>
         </div>
         {% if order.current_order == True %}

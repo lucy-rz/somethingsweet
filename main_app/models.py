@@ -11,7 +11,7 @@ class Candy(models.Model):
     cost = models.IntegerField()
 
     def __str__(self):
-        return f'{self.name} {self.id}'
+        return f'name:{self.name} candy_id:{self.id} cost:{self.cost}'
     
     def get_absolute_url(self):
         return reverse('detail', kwargs={'candy_id': self.id})
@@ -30,7 +30,7 @@ class OrderItem(models.Model):
     quantity = models.IntegerField()
 
     def __str__(self):
-        return f'{self.order_id} {self.candy_id} {self.quantity}'
+        return f'order_id:{self.order_id} candy_id:{self.candy_id} qty:{self.quantity}'
     
 class Photo(models.Model):
     url = models.CharField(max_length=300)
