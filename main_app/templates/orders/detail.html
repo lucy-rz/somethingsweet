@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Order detail</h1>
+{% if order.current_order == True %}
+    <h1>Current order detail</h1>
+{% else %}
+    <h1>Past order</h1>
+{% endif %}
 
 <div class="row">
     <div class="col s6 col-offset-3">
@@ -10,14 +14,21 @@
                 <span class="card-title">
                     {{ order.id }}
                 </span>
-                {% for candy in order.candies.all %}
+                {% for candy, orderitem in itemized %}
                     <div class="card-content">
-                        <p>{{ candy.name }}</p>
-                    
+                        <p>Candy: {{ candy.name }}</p>
+                        <p>Cost: ${{ candy.cost }}</p>
+                        <p>Qty: {{ orderitem.quantity }}</p>
                     </div>
                 {% endfor %}
             </div>
         </div>
+        {% if order.current_order == True %}
+        <form action="{% url 'complete_order' order.id %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Complete order" class="btn purple">
+        </form>
+        {% endif %}
     </div>
 </div>
 

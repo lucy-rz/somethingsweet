@@ -42,6 +42,8 @@ def candies_detail(request, candy_id):
 
 def add_to_order(request, candy_id):
     quantity = request.POST.get('quantity', None)
+    if quantity == '':
+        quantity = 1
     order = None
     try:
         order = Order.objects.get(user=request.user, current_order=True)
@@ -80,6 +82,12 @@ def orders_index(request):
 
 def order_detail(request, order_id):
     order = Order.objects.get(id=order_id)
+    itemized = zip(order.candies.all(), order.orderitem_set.all())
     return render(request, 'orders/detail.html', {
-        'order': order,     
+        'order': order,  
+        'itemized': itemized,   
     })
+
+def complete_order(request, order_id):
+    Order.objects.filter(current_order=True, id=order_id).update(current_order=False)
+    return redirect('orders_index')
