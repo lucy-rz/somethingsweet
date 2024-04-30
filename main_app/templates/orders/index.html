@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Orders</h1>
+
+{% for order in orders %}
+<!-- <a href=""></a> -->
+<div class="card">
+    <div class="card-content">
+        <span class="card.title">
+            {{ order.id }}
+        </span>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

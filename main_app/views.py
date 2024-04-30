@@ -71,3 +71,9 @@ def add_photo(request, candy_id):
     imgurl = request.POST.get('photo-url', None)
     Photo.objects.create(url=imgurl, candy_id=candy_id)
     return redirect('detail', candy_id=candy_id)
+
+def orders_index(request):
+    orders = Order.objects.filter(user=request.user)
+    return render(request, 'orders/index.html', {
+        'orders': orders
+    })
