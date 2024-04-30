@@ -41,7 +41,14 @@ def candies_detail(request, candy_id):
     }) 
 
 def add_to_order(request, candy_id):
-    # Order.objects.get()
+    quantity = request.POST.get('quantity', None)
+    order = None
+    try:
+        order = Order.objects.get(user=request.user, current_order=True)
+    except Order.DoesNotExist:
+        order = Order.objects.create(user=request.user, current_order=True)
+    order.candies.add(candy_id, through_defaults={'quantity': quantity})
+    print(candy_id, quantity, str(order))
     return candies_index(request)
 
 class CandyCreate(CreateView):

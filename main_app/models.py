@@ -22,7 +22,7 @@ class Order(models.Model):
     current_order = models.BooleanField(default=True)
 
     def __str__(self):
-        return f'{self.user_id} {self.current_order}'
+        return f'order: {self.user_id} {self.current_order}'
 
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
