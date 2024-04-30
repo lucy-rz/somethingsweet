@@ -21,11 +21,16 @@
                 </ul>
                 <ul class="right">
                     <li><a href="{% url 'about' %}">About</a></li>
+                    {% if user.is_authenticated %}
                     <li><a href="{% url 'index' %}">Candies</a></li>
+                    {% if user.is_superuser %}
                     <li><a href="{% url 'candies_create' %}">Add candy</a></li>
+                    {% endif %}
                     <li><form method="POST" action="{% url 'logout' %}">{% csrf_token %}<button class="logout-btn" type="submit">Log Out</button></form></li>
+                    {% else %}
                     <li><a href="{% url 'signup' %}">Sign Up</a></li>
                     <li><a href="{% url 'login' %}">Log In</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>

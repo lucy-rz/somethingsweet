@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
-from .models import Candy, Photo
+from .models import Candy, Photo, Order, OrderItem
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView
 
 # Create your views here.
 
@@ -38,6 +39,9 @@ def candies_detail(request, candy_id):
     return render (request, 'candies/detail.html', {
         'candy': candy,
     }) 
+
+# def add_to_order(request, candy_id, quantity):
+    # Order.objects.get(us)
 
 class CandyCreate(CreateView):
     model = Candy
