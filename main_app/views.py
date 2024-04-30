@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from .models import Candy, Photo
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 # Create your views here.
 
@@ -40,3 +40,11 @@ def candies_detail(request, candy_id):
 class CandyCreate(CreateView):
     model = Candy
     fields = ['name', 'country', 'description', 'cost']
+
+class CandyUpdate(UpdateView):
+    model = Candy
+    fields = ['name', 'country', 'description', 'cost']
+
+class CandyDelete(DeleteView):
+    model = Candy
+    success_url = '/candies'
