@@ -3,14 +3,15 @@
 <h1>Orders</h1>
 
 {% for order in orders %}
-<!-- <a href=""></a> -->
-<div class="card">
-    <div class="card-content">
-        <span class="card.title">
-            {{ order.id }}
-        </span>
+<a href="{% url 'order_detail' order.id %}">
+    <div class="card">
+        <div class="card-content">
+            <span class="card.title">
+                {{ order.id }}
+            </span>
+        </div>
     </div>
-</div>
+</a>
 {% endfor %}
 
 {% endblock %}

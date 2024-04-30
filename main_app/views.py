@@ -77,3 +77,9 @@ def orders_index(request):
     return render(request, 'orders/index.html', {
         'orders': orders
     })
+
+def order_detail(request, order_id):
+    order = Order.objects.get(id=order_id)
+    return render(request, 'orders/detail.html', {
+        'order': order,     
+    })
