@@ -40,7 +40,7 @@ def candies_detail(request, candy_id):
         'candy': candy,
     }) 
 
-# def add_to_order(request, candy_id, quantity):
+# def add_to_order(request, candy_id):
     # Order.objects.get(us)
 
 class CandyCreate(CreateView):

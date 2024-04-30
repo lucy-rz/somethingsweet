@@ -11,5 +11,5 @@ urlpatterns = [
     path('candies/<int:pk>/update/', views.CandyUpdate.as_view(), name='candies_update'),
     path('candies/<int:pk>/delete/', views.CandyDelete.as_view(), name='candies_delete'),
     path('candies/<int:candy_id>/add_photo', views.add_photo, name='add_photo'),
-    # path('orders/<int:candy_id>/<int:quantity>/add_to_order', views.add_to_order, name='add_to_order'),
+    # path('candies/<int:candy_id>/add_to_order', views.add_to_order, name='add_to_order'),
 ]

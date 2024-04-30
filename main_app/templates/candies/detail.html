@@ -22,7 +22,7 @@
         {% empty %}
         <div class="card-panel purple-text center-align">No photos uploaded</div>
         {% endfor %}
-
+        {% if user.is_superuser %}
         <form action="{% url 'add_photo' candy.id %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <input type="url" name="photo-url">
@@ -30,6 +30,7 @@
             <br>
             <input type="submit" value="Upload Photo" class="btn purple">
         </form>
+        {% endif %}
     </div>
 </div>
 
