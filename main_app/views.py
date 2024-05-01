@@ -57,7 +57,7 @@ def add_to_order(request, candy_id):
     print(candy_id, quantity, str(order))
     return candies_index(request)
 
-class CandyCreate(CreateView):
+class CandyCreate(LoginRequiredMixin, CreateView):
     model = Candy
     fields = ['name', 'country', 'description', 'cost']
 
@@ -65,11 +65,11 @@ class CandyCreate(CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class CandyUpdate(UpdateView):
+class CandyUpdate(LoginRequiredMixin, UpdateView):
     model = Candy
     fields = ['name', 'country', 'description', 'cost']
 
-class CandyDelete(DeleteView):
+class CandyDelete(LoginRequiredMixin, DeleteView):
     model = Candy
     success_url = '/candies'
 
