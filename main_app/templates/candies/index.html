@@ -8,6 +8,9 @@
     <div class="card">
         <div class="card-content">
             <span class="card.title">{{ candy.name }}</span>
+            {% for photo in candy.photo_set.all %}
+            <img src="{{ photo.url }}" alt="{{ candy.name }}" class="responsive-img card-panel">
+            {% endfor %}
         </div>
     </div>
 </a>

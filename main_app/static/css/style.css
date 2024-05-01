@@ -7,12 +7,12 @@
 /* #F6EEE0 */
 
 #logo {
-    font-family: 'Oswald';
+    font-family: 'Oswald', sans-serif;
 }
 
 body {
     background-color: #F6EEE0;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
