@@ -37,7 +37,7 @@ edit, and delete candies, and add photos.
 - Candies
 ![Candies](main_app/static/images/candies.png)
 
-- Add candy
+- Add candy, restricted to superuser
 ![Add candy](main_app/static/images/add_candy.png)
 
 - Current order
