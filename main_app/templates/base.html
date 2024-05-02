@@ -22,8 +22,8 @@
                 </ul>
                 <ul class="right">
                     <li><a href="{% url 'about' %}">About</a></li>
-                    {% if user.is_authenticated %}
                     <li><a href="{% url 'index' %}">Candies</a></li>
+                    {% if user.is_authenticated %}
                     <li><a href="{% url 'orders_index' %}">Orders</a></li>
                     {% if user.is_superuser %}
                     <li><a href="{% url 'candies_create' %}">Add candy</a></li>

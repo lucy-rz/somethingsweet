@@ -37,6 +37,8 @@
         <form action="{% url 'add_to_order' candy.id %}" method="POST">
             {% csrf_token %}
             <input type="number" name="quantity">
+            <br>
+            <br>
             <input type="submit" value="Add to order" class="btn purple">
         </form>
     </div>
