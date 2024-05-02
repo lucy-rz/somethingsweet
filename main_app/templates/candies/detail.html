@@ -12,10 +12,13 @@
                 <p>Description: {{ candy.description }}</p>
                 <p>Cost: {{ candy.cost }}</p>
             </div>
+            {% if user.is_superuser %}
             <div class="card-action">
+                {% csrf_token %}
                 <a href="{% url 'candies_update' candy.id %}">Edit</a>
                 <a href="{% url 'candies_delete' candy.id %}">Delete</a>
             </div>
+            {% endif %}
         </div>
         {% for photo in candy.photo_set.all %}
         <img src="{{ photo.url }}" alt="{{ candy.name }}" class="responsive-img card-panel">
