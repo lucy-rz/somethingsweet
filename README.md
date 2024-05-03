@@ -57,12 +57,13 @@ edit, and delete candies, and add photos.
 - [Heroku](https://somethingsweetapp-40c3d82359a7.herokuapp.com/)
 - [Trello, ERD, Wireframe](https://trello.com/b/c4B5BRUu/something-sweet)
 
+
 # Future steps
-- Modify the quantity of a candy in my current order, rather than removing all items.
+- Modify the quantity of a candy in my current order.
 - Automatically set a date of an order.
 - Add reviews to a candy.
 
 
 # Images credit
-[Freepik - Flaticon](https://www.flaticon.com/free-icons/sweetsSweets) 
-[Unsplash](https://unsplash.com/)
+- [Freepik - Flaticon](https://www.flaticon.com/free-icons/sweetsSweets) 
+- [Unsplash](https://unsplash.com/)

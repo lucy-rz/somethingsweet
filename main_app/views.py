@@ -54,7 +54,6 @@ def add_to_order(request, candy_id):
     except Order.DoesNotExist:
         order = Order.objects.create(user=request.user, current_order=True)
     order.candies.add(candy_id, through_defaults={'quantity': quantity})
-    print(candy_id, quantity, str(order))
     return candies_index(request)
 
 class CandyCreate(LoginRequiredMixin, CreateView):
@@ -94,7 +93,6 @@ def order_detail(request, order_id):
     for item in zip(order.candies.all(), order.orderitem_set.all()):
         total_per_candy_type = item[0].cost * item[1].quantity
         order_total += total_per_candy_type
-        print(item)
     return render(request, 'orders/detail.html', {
         'order': order,  
         'itemized': itemized,
